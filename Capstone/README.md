@@ -8,24 +8,28 @@ This application allows users to look at a 7 day forecast. This application allo
 
 ##Key Features
 
-User Login
-Saved locations within user
-Weather API for daily forecast
-Ability to delete saved locations
-Search feature to find specific location
+1) User Login
+2) Saved locations within user
+3) Weather API for daily forecast
+4) Ability to delete saved locations
+5) Search feature to find specific location
+
 ##Technologies List
 
-Springboot
-Java
-Bootstrap
-CSS
-Weather API
-Thymeleaf
-Gradle
-MySQL
+1) Springboot
+2) Java
+3) Bootstrap
+4) CSS
+5) Weather API
+6) Thymeleaf
+7) Gradle
+8) MySQL
+
 ##Example Applications
 
-myweatherradar.org weather.com weatheronlinenow.com
+myweatherradar.org 
+weather.com 
+weatheronlinenow.com
 
 ##Initial User stories
 
