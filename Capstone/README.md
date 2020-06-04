@@ -41,4 +41,4 @@ As a user I would like to delete locations from favorites so that I can keep org
 
 As a user I would like to have a user-friendly UI so that its easy and not confusing to navigate.
 
-As a us
+As a user I would like to see specific details for the day so that I can plan my day accordingly.
