@@ -46,3 +46,9 @@ As a user I would like to delete locations from favorites so that I can keep org
 As a user I would like to have a user-friendly UI so that its easy and not confusing to navigate.
 
 As a user I would like to see specific details for the day so that I can plan my day accordingly.
+
+As a user I would like to have a navbar so that I can easily go between all of the pages.
+
+As a user I would like to be able to see the date and time within the program so that I do not have to exit out of app to do so.
+
+As a user I would like to be able to see my current locations weather so I don't have to manually search it.

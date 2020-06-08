@@ -1,29 +1,42 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
-<body class="container">
 
-<!--<header th:replace="fragments :: page-header"></header>-->
-
-<form method="post">
-    <h1 class="title">Eriq's Weather UI</h1>
-    <div class="form-group">
-        <label th:for="username">Username
-            <input class="form-control" th:field="${loginFormDTO.username}">
-        </label>
-        <p class="error" th:errors="${loginFormDTO.username}"></p>
+<body>
+    <div id="login">
+        <h3 class="text-center text-white pt-5">Login Form</h3>
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form id="login-form" class="form" action="" method="post">
+                            <h3 class="text-center text-info">Login</h3>
+                            <div class="form-group">
+                                <label th:for="username" class="text-info">Username
+                                    <input class="form-control" id="username"
+                                           name="username" th:field="${loginFormDTO.username}">
+                                </label><br>
+                                <p class="error" th:errors="${loginFormDTO.username}"></p>
+                            </div>
+                            <div class="form-group">
+                                <label th:for="password" class="text-info">Password
+                                    <input class="form-control" th:field="${loginFormDTO.password}" type="password"
+                                           name="password" id="password">
+                                </label><br>
+                                <p class="error" th:errors="${loginFormDTO.password}"></p>
+                            </div>
+                            <div class="form-group">
+                                <label for="remember-me" class="text-info"><span>Remember me</span><span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
+                            </div>
+                            <div id="register-link" class="text-right">
+                                <input type="submit" class="btn btn-info btn-md" value="Log In" />
+                                <p id="sign-up">Don't have an account? <a href="/register">Sign Up</a></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="form-group">
-        <label>Password
-            <input class="form-control" th:field="${loginFormDTO.password}" type="password">
-        </label>
-        <p class="error" th:errors="${loginFormDTO.password}"></p>
-    </div>
-
-    <input type="submit" class="btn btn-primary" value="Log In" />
-</form>
-
-<p>Don't have an account? <a href="/register">Sign Up</a></p>
-
 </body>
 </html>

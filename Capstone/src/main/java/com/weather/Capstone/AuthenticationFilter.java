@@ -6,7 +6,6 @@ import com.weather.Capstone.models.data.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -56,4 +55,5 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
         response.sendRedirect("/login");
         return false;
     }
+
 }

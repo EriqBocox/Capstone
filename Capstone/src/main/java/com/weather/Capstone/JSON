@@ -1,0 +1,49 @@
+{
+    "coord":
+            {"lon":-74.99, "lat":39.74},
+    "weather":
+            [
+                {
+                    "id":500,
+                    "main":"Rain",
+                    "description":"light rain",
+                    "icon":"10d"
+                 }
+            ],
+    "base":"stations",
+    "main":
+            {
+                "temp":302.01,
+                "feels_like":305.05,
+                "temp_min":301.48,
+                "temp_max":302.59,
+                "pressure":1009,
+                "humidity":78
+            },
+    "wind":
+            {
+                "speed":4.51,
+                "deg":220
+            },
+    "rain":
+            {
+                "1h":0.25
+            },
+    "clouds":
+            {
+                "all":100
+            },
+    "dt":1591383194,
+    "sys":
+            {
+                "type":3,
+                "id":2005422,
+                "country":"US",
+                "sunrise":1591349558,
+                "sunset":1591403087
+            },
+    "timezone":-14400,
+    "id":0,
+    "name":"Sicklerville",
+    "cod":200
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <script th:src="@{script.js}"></script>
+    <link rel="stylesheet" href="capstone.css">
+    <title>Home</title>
+</head>
+<body>
+    <header th:replace="fragments :: page-header"></header>
+        <h1 th:text="${title}"></h1>
+        <h1 th:text="${city} + ', ' + ${country}"></h1>
+        <h1 th:text="${weatherStatus}"></h1>
+        <h1 th:text="${description}"></h1>
+        <h1 th:text="${feelsLike}"></h1>
+        <h1 th:text="${tempMax}"></h1>
+        <h1 th:text="${tempMin}"></h1>
+
+    <div class="weather-container">
+        <img class="icon">
+        <p class="weather"></p>
+        <p class="temp"></p>
+    </div>
+
+</body>
+</html>
