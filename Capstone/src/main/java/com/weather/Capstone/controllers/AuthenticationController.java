@@ -81,7 +81,7 @@ public class AuthenticationController extends HandlerInterceptorAdapter {
         userRepository.save(newUser);
         setUserInSession(request.getSession(), newUser);
 
-        return "redirect:";
+        return "redirect:/search";
     }
 
     @GetMapping("/login")
@@ -119,7 +119,7 @@ public class AuthenticationController extends HandlerInterceptorAdapter {
 
         setUserInSession(request.getSession(), theUser);
 
-        return "redirect:";
+        return "redirect:/search";
     }
 
     @GetMapping("/logout")

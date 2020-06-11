@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -27,35 +28,41 @@ public class HomeController {
     private static HttpURLConnection connection;
 
     @GetMapping("/home")
+    public String showHomePage(HttpServletRequest request, Model model) {
+        return "/home";
+    }
+
+    @PostMapping("/home")
     public String home(Model model) {
-        model.addAttribute("title", "Welcome To my Weather Radar!");
-        model.addAttribute("city", accessApi().getString("name"));
-        model.addAttribute("country", accessApi().getJSONObject("sys").getString("country"));
-        model.addAttribute("weatherStatus", ((JSONObject) accessApi().getJSONArray("weather").get(0)).getString("main"));
-        model.addAttribute("description", ((JSONObject) accessApi().getJSONArray("weather").get(0)).getString(
-                "description"));
-        model.addAttribute("feelsLike", accessApi().getJSONObject("main").getFloat("feels_like"));
-        model.addAttribute("tempMin", accessApi().getJSONObject("main").getFloat("temp_min"));
-        model.addAttribute("tempMax", accessApi().getJSONObject("main").getFloat("temp_max"));
-        return "home";
+        JSONObject apiData = accessApi("bordentown");
+        model.addAttribute("title", "Welcome To My Weather Radar!");
+        model.addAttribute("city", apiData.getString("name"));
+        model.addAttribute("country", apiData.getJSONObject("sys").getString("country"));
+        model.addAttribute("icon", ((JSONObject) apiData.getJSONArray("weather").get(0)).getString("icon"));
+        model.addAttribute("weatherStatus", ((JSONObject) apiData.getJSONArray("weather").get(0)).getString("main"));
+        model.addAttribute("description", ((JSONObject) apiData.getJSONArray("weather").get(0)).getString("description"));
+        model.addAttribute("feelsLike", apiData.getJSONObject("main").getFloat("feels_like"));
+        model.addAttribute("temp", apiData.getJSONObject("main").getFloat("temp"));
+        model.addAttribute("tempMin", apiData.getJSONObject("main").getFloat("temp_min"));
+        model.addAttribute("tempMax", apiData.getJSONObject("main").getFloat("temp_max"));
+        return "/home";
     }
 
     public static JSONObject parse(String responseBody) {
         JSONObject albums = new JSONObject(responseBody);
-//        System.out.println(albums.getJSONObject("main").getFloat("temp_min"));
 
         return albums;
 
     }
 
-    public static JSONObject accessApi () {
+    public static JSONObject accessApi (String city) {
         BufferedReader reader;
         String line;
         StringBuffer responseContent = new StringBuffer();
 
         try {
-            URL url = new URL("http://api.openweathermap.org/data/2.5/weather?zip=90005," +
-                    "us&appid=f863c4ab54416c6ba8d0fa855c404a3f");
+            URL url = new URL("http://api.openweathermap.org/data/2" +
+                    ".5/weather?q=" + city + "&appid=f863c4ab54416c6ba8d0fa855c404a3f");
             connection = (HttpURLConnection) url.openConnection();
 
             connection.setRequestMethod("GET");
